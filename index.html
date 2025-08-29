@@ -1,0 +1,881 @@
+To change the project's name to "SuperFlix" in the provided HTML and CSS, you need to update all instances of "Netflix" with "SuperFlix" and change the associated colors and logo to match a new blue theme. Here are the specific changes to make:
+
+  * **Change the title and icon:** In the `<head>`, update the `<title>` and `<link rel="icon">`.
+  * **Update the CSS variables:** In the `<style>` block, change the color variables to a new blue palette.
+  * **Replace the logo:** In the `<header>`, change the text of the `<a>` tag with the class `logo` from "NETFLIX" to "SUPERFLIX".
+  * **Update all text references:** Change any text that says "Netflix" to "SuperFlix," including in headings, paragraphs, and the footer.
+  * **Change image URLs (optional but recommended):** Replace the existing Netflix images with ones more fitting for "SuperFlix."
+
+### Updated HTML and CSS
+
+Here is the full code with all the changes implemented.
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperFlix Brasil - assistir a séries online, assistir a filmes online</title>
+    <link rel="icon" href="https://via.placeholder.com/32x32.png?text=SF">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+        :root {
+            --superflix-blue: #007bff;
+            --superflix-black: #000000;
+            --superflix-gray-light: #737373;
+            --superflix-gray-dark: #222222;
+            --text-white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: var(--superflix-black);
+            color: var(--text-white);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .section-divider {
+            height: 8px;
+            background-color: var(--superflix-gray-dark);
+        }
+
+        /* --- Header --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .header .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--superflix-blue);
+            text-decoration: none;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header .lang-selector {
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--text-white);
+            border-radius: 4px;
+            color: var(--text-white);
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592c.859 0 1.319 1.013.753 1.658L8.753 11.14c-.198.22-.533.22-.731 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 12px;
+        }
+
+        .header .lang-selector option {
+            background-color: var(--superflix-black);
+        }
+
+        .header .sign-in-button {
+            background-color: var(--superflix-blue);
+            color: var(--text-white);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .header .sign-in-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background-image:
+                linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%),
+                url('https://tse1.mm.bing.net/th/id/OIP.x-ngkJuHITGA1KMpfX2LAgAAAA?w=474&h=266&rs=1&pid=ImgDetMain&o=7&rm=3');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 950px;
+            padding: 0 3%;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .cta-form input {
+            padding: 15px 15px;
+            width: 80%;
+            max-width: 450px;
+            border: 1px solid var(--superflix-gray-light);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--text-white);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .cta-form button {
+            background-color: var(--superflix-blue);
+            color: var(--text-white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .cta-form button .arrow-icon {
+            width: 15px;
+            height: 15px;
+            fill: var(--text-white);
+        }
+
+        /* --- Vantagens e FAQ (Revisado para Centralização) --- */
+        .advantages-section, .faq-section {
+            padding: 70px 5%;
+            text-align: center;
+        }
+
+        .advantages-section h2, .faq-section h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 40px;
+        }
+
+        .advantage-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .advantage-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .advantage-text h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .advantage-text p {
+            font-size: 1.2rem;
+        }
+
+        .advantage-media {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 30px;
+        }
+
+        .advantage-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .advantage-media .video-overlay {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 60%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .advantage-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Trending Section (Carousel) --- */
+        .trending-section {
+            padding: 70px 0;
+            background-color: var(--superflix-black);
+            position: relative;
+        }
+
+        .trending-section h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-align: left;
+            padding-left: 5%;
+        }
+
+        .carousel-container {
+            position: relative;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+        }
+
+        .trending-list {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            padding: 0;
+            gap: 15px;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .trending-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Carrossel: Setas invisíveis com ícones de SVG, aparecem no hover */
+        .carousel-container:hover .carousel-button {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            cursor: pointer;
+            width: 60px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-button svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
+
+        .carousel-button.left {
+            left: 0;
+        }
+
+        .carousel-button.right {
+            right: 0;
+        }
+
+        .trending-item {
+            position: relative;
+            min-width: 180px;
+            width: 180px;
+            height: 250px;
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            scroll-snap-align: start;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 10px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Adicionando o efeito de escurecimento na imagem */
+        .trending-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .trending-item:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            z-index: 5;
+        }
+
+        /* Nomes e Números */
+        .trending-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+        
+        .trending-title {
+            font-size: 1rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px var(--superflix-black);
+            margin-bottom: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .trending-item:hover .trending-title {
+            opacity: 1;
+        }
+
+        .trending-number {
+            font-size: 7rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.1);
+            -webkit-text-stroke: 3px var(--superflix-gray-light);
+            text-shadow: none;
+            line-height: 1;
+            z-index: 2;
+        }
+        
+        .trending-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        /* --- FAQ Section --- */
+        .faq-list {
+            list-style: none;
+            max-width: 815px;
+            margin: 0 auto;
+        }
+
+        .faq-list details {
+            background-color: var(--superflix-gray-dark);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-list details:hover {
+            background-color: #414141;
+        }
+
+        .faq-list summary {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            outline: none;
+        }
+
+        .faq-list summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-list summary::after {
+            content: '+';
+            font-size: 2rem;
+            font-weight: 400;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-list details[open] summary::after {
+            content: '×';
+            transform: rotate(45deg);
+        }
+
+        .faq-list .content {
+            padding: 20px;
+            border-top: 1px solid var(--superflix-black);
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            padding: 50px 5%;
+            color: var(--superflix-gray-light);
+            font-size: 0.9rem;
+        }
+
+        .footer .contact {
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--superflix-gray-light);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-lang-selector {
+            margin-top: 20px;
+            width: fit-content;
+        }
+
+        .footer-disclaimer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+        }
+
+        /* --- Responsividade (Mobile e Desktop) --- */
+        @media (min-width: 768px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.5rem;
+            }
+
+            .cta-form {
+                flex-direction: row;
+                gap: 0;
+            }
+
+            .cta-form input {
+                flex-grow: 1;
+                max-width: 450px;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .cta-form button {
+                padding: 15px 40px;
+                font-size: 1.5rem;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                min-width: 200px;
+                height: 58px;
+            }
+
+            .advantages-section h2, .faq-section h2 {
+                font-size: 3rem;
+            }
+
+            .advantage-item {
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
+                gap: 50px;
+            }
+
+            .advantage-item:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+
+            .advantage-text, .advantage-media {
+                flex: 1;
+            }
+            
+            .trending-section h2 {
+                padding-left: 5%;
+            }
+
+            .carousel-container {
+                padding: 0 40px;
+            }
+
+            .trending-list {
+                gap: 20px;
+            }
+
+            .trending-item {
+                min-width: 200px;
+                width: 200px;
+                height: 280px;
+                padding: 15px;
+            }
+            
+            .trending-title {
+                font-size: 1.2rem;
+            }
+
+            .trending-number {
+                font-size: 9rem;
+            }
+
+            .footer-links {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">SUPERFLIX</a>
+        <div class="header-actions">
+            <select class="lang-selector">
+                <option value="pt">Português</option>
+                <option value="en">English</option>
+            </select>
+            <a href="#" class="sign-in-button">Entrar</a>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Filmes, séries e muito mais, sem limites</h1>
+            <p>A partir de R$ 20,90. Cancele quando quiser.</p>
+            <p>Quer assistir? Informe seu email para criar ou reiniciar sua assinatura.</p>
+            <form class="cta-form">
+                <input type="email" placeholder="Endereço de email" required>
+                <button type="submit">
+                    Vamos lá
+                    <svg class="arrow-icon" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.61 1.34L4.76 6l-4.15 4.66.75.66L6.1 6 .61.68l.75.66z" fill="#fff"/></svg>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="advantages-section">
+        <div class="advantage-item">
+            <div class="advantage-text">
+                <h2>A SuperFlix que você adora por apenas R$ 20,90.</h2>
+                <p>Aproveite nossa opção mais acessível, o plano com anúncios.</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="advantage-item">
+            <div class="advantage-text">
+                <h2>Aproveite na TV</h2>
+                <p>Assista em Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, aparelhos de Blu-ray e outros dispositivos.</p>
+            </div>
+            <div class="advantage-media">
+                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="TV da SuperFlix">
+                <div class="video-overlay">
+                    <video autoplay loop muted playsinline src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v" type="video/mp4"></video>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="advantage-item">
+            <div class="advantage-text">
+                <h2>Baixe séries para assistir offline</h2>
+                <p>Salve seus títulos favoritos e sempre tenha algo para assistir.</p>
+            </div>
+            <div class="advantage-media">
+                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" alt="Celular com SuperFlix offline">
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="advantage-item">
+            <div class="advantage-text">
+                <h2>Assista onde quiser</h2>
+                <p>Assista a quantos filmes e séries quiser no celular, tablet, laptop e TV.</p>
+            </div>
+            <div class="advantage-media">
+                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png" alt="Múltiplos dispositivos com SuperFlix">
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="advantage-item">
+            <div class="advantage-text">
+                <h2>Crie perfis para crianças</h2>
+                <p>Deixe as crianças se aventurarem com seus personagens favoritos em um espaço feito só para elas, sem pagar a mais por isso.</p>
+            </div>
+            <div class="advantage-media">
+                <img src="https://colegionext.com.br/wp-content/uploads/2020/04/colegionext_nexteducacional_image_317.jpeg" alt="Crianças assistindo SuperFlix">
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="trending-section">
+        <h2>Em alta</h2>
+        <div class="carousel-container">
+            <button class="carousel-button left" onclick="scrollCarousel('trending-list', -1)">
+                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+            </button>
+            <ol class="trending-list" id="trending-list">
+                <li class="trending-item">
+                    <img src="https://classic.exame.com/wp-content/uploads/2022/08/Wandinha.jpg?quality=70&strip=info&w=743" alt="Wandinha">
+                    <div class="trending-content">
+                        <span class="trending-title">Wandinha</span>
+                        <span class="trending-number">1</span>
+                    </div>
+                </li>
+                <li class="trending-item">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.KUJJX67PczzxUwifvrRpFAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Meu Ano em Oxford">
+                    <div class="trending-content">
+                        <span class="trending-title">Meu Ano em Oxford</span>
+                        <span class="trending-number">2</span>
+                    </div>
+                </li>
+                <li class="trending-item">
+                    <img src="https://th.bing.com/th/id/R.fc2688667f233537cb39e7d93c6863be?rik=ovCkjvO4qAtdWQ&riu=http%3a%2f%2fst2.depositphotos.com%2f3889193%2f9110%2fi%2f450%2fdepositphotos_91104592-stock-photo-romantic-couple-kissing-at-sunset.jpg&ehk=rw7%2fNMvLh3qRXr%2b1llWk6DqJDuruhlbXrNysaM%2b8zYc%3d&risl=&pid=ImgRaw&r=0" alt="Quero Você">
+                    <div class="trending-content">
+                        <span class="trending-title">Quero Você</span>
+                        <span class="trending-number">3</span>
+                    </div>
+                </li>
+                <li class="trending-item">
+                    <img src="https://www.horoscopocentral.com/wp-content/uploads/2025/01/dia-dos-solteiros-no-brasil-1200x686.jpg" alt="Planeta dos Solteiros: Aventura na Grécia">
+                    <div class="trending-content">
+                        <span class="trending-title">Planeta dos Solteiros</span>
+                        <span class="trending-number">4</span>
+                    </div>
+                </li>
+                <li class="trending-item">
+                    <img src="https://uploads.metropoles.com/wp-content/uploads/2021/10/12170302/round-6.jpeg" alt="Round 6">
+                    <div class="trending-content">
+                        <span class="trending-title">Round 6</span>
+                        <span class="trending-number">5</span>
+                    </div>
+                </li>
+                <li class="trending-item">
+                    <img src="https://static.wixstatic.com/media/73d9a0_b5d034c21f334710b427539e611b738e~mv2.png/v1/fill/w_980,h_551,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/73d9a0_b5d034c21f334710b427539e611b738e~mv2.png" alt="Guerreiras do K-Pop">
+                    <div class="trending-content">
+                        <span class="trending-title">Guerreiras do K-Pop</span>
+                        <span class="trending-number">6</span>
+                    </div>
+                </li>
+                <li class="trending-item">
+                    <img src="https://musicaecinema.com/wp-content/uploads/2025/08/Maldito-Futebol-Fantasy-novo-filme-de-comedia-estreia-na-Netflix.png" alt="Maldito Futebol Fantasy">
+                    <div class="trending-content">
+                        <span class="trending-title">Maldito Futebol Fantasy</span>
+                        <span class="trending-number">7</span>
+                    </div>
+                </li>
+                <li class="trending-item">
+                    <img src="https://musicaecinema.com/wp-content/uploads/2025/08/pssica-nova-serie-brasileira-1.png" alt="Pssica">
+                    <div class="trending-content">
+                        <span class="trending-title">Pssica</span>
+                        <span class="trending-number">8</span>
+                    </div>
+                </li>
+                <li class="trending-item">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.wZ-rX3IMgOXF7ZhqbhdYqwHaEA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Um Maluco no Golfe 2">
+                    <div class="trending-content">
+                        <span class="trending-title">Um Maluco no Golfe 2</span>
+                        <span class="trending-number">9</span>
+                    </div>
+                </li>
+                <li class="trending-item">
+                    <img src="https://recortelirico.com.br/wp-content/uploads/2023/05/cena-de-the-chosen.webp" alt="The Chosen">
+                    <div class="trending-content">
+                        <span class="trending-title">The Chosen</span>
+                        <span class="trending-number">10</span>
+                    </div>
+                </li>
+            </ol>
+            <button class="carousel-button right" onclick="scrollCarousel('trending-list', 1)">
+                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg>
+            </button>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="faq-section">
+        <h2>Perguntas frequentes</h2>
+        <ul class="faq-list">
+            <li>
+                <details>
+                    <summary>O que é a SuperFlix?</summary>
+                    <div class="content">A SuperFlix é um serviço de streaming que oferece uma grande variedade de séries, filmes, documentários e mais, premiados em milhares de dispositivos conectados à internet. Você pode assistir a quantos filmes e séries quiser, quando e onde quiser, sem comerciais e com um preço acessível.</div>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Quanto custa a SuperFlix?</summary>
+                    <div class="content">Assista à SuperFlix no seu celular, tablet, Smart TV, laptop ou aparelho de streaming por uma taxa mensal única. Os planos variam de R$ 20,90 a R$ 55,90 por mês. Sem contrato, sem taxas extras ou compromisso.</div>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Onde posso assistir?</summary>
+                    <div class="content">Assista onde quiser, quando quiser. Faça login com sua conta SuperFlix em superflix.com para assistir online no seu computador pessoal ou em qualquer aparelho conectado à internet que tenha o aplicativo da SuperFlix, como Smart TVs, smartphones, tablets, aparelhos de streaming e videogames.</div>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Como faço para cancelar?</summary>
+                    <div class="content">A SuperFlix é flexível. Sem contratos ou compromissos. Você pode cancelar sua conta online com apenas dois cliques. Não há taxas de cancelamento – você pode iniciar ou encerrar sua assinatura a qualquer momento.</div>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>O que eu posso assistir na SuperFlix?</summary>
+                    <div class="content">A SuperFlix tem um enorme catálogo de séries, filmes, documentários, originais SuperFlix premiados e muito mais. Assista o quanto quiser, quando quiser.</div>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>A SuperFlix é adequada para crianças?</summary>
+                    <div class="content">A experiência SuperFlix Kids faz parte da sua assinatura para dar aos pais o controle enquanto as crianças desfrutam de séries e filmes para a família em seu próprio espaço. Perfis infantis vêm com controles parentais protegidos por PIN que permitem restringir a classificação etária do conteúdo que as crianças podem assistir e bloquear títulos específicos que você não quer que as crianças vejam.</div>
+                </details>
+            </li>
+        </ul>
+        <div style="margin-top: 30px;">
+            <p>Quer assistir? Informe seu email para criar ou reiniciar sua assinatura.</p>
+            <form class="cta-form">
+                <input type="email" placeholder="Endereço de email" required>
+                <button type="submit">
+                    Vamos lá
+                    <svg class="arrow-icon" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.61 1.34L4.76 6l-4.15 4.66.75.66L6.1 6 .61.68l.75.66z" fill="#fff"/></svg>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <footer class="footer">
+        <p class="contact">Dúvidas? Ligue para <a href="tel:08005912876">0800 591 2876</a></p>
+        <div class="footer-links">
+            <a href="#">Perguntas frequentes</a>
+            <a href="#">Central de Ajuda</a>
+            <a href="#">Conta</a>
+            <a href="#">Media Center</a>
+            <a href="#">Relações com investidores</a>
+            <a href="#">Carreiras</a>
+            <a href="#">Resgatar cartão pré-pago</a>
+            <a href="#">Comprar cartão pré-pago</a>
+            <a href="#">Formas de assistir</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Privacidade</a>
+            <a href="#">Preferências de cookies</a>
+            <a href="#">Informações corporativas</a>
+            <a href="#">Entre em contato</a>
+            <a href="#">Teste de velocidade</a>
+            <a href="#">Avisos legais</a>
+            <a href="#">Só na SuperFlix</a>
+        </div>
+        <select class="lang-selector footer-lang-selector">
+            <option value="pt">Português</option>
+            <option value="en">English</option>
+        </select>
+        <p class="footer-disclaimer">SuperFlix Brasil</p>
+        <p class="footer-disclaimer">Esta página é uma obra de Marcio Maker <a href="#">Saiba mais.</a></p>
+        <p class="footer-disclaimer">Ver mais projetos<a href="#">aqui</a> ou <a href="#">Contato.</a></p>
+    </footer>
+
+    <script>
+        function scrollCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const scrollAmount = carousel.offsetWidth * 0.8;
+
+            if (direction === 1) {
+                carousel.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                carousel.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
+```
