@@ -1,16 +1,3 @@
-To change the project's name to "SuperFlix" in the provided HTML and CSS, you need to update all instances of "Netflix" with "SuperFlix" and change the associated colors and logo to match a new blue theme. Here are the specific changes to make:
-
-  * **Change the title and icon:** In the `<head>`, update the `<title>` and `<link rel="icon">`.
-  * **Update the CSS variables:** In the `<style>` block, change the color variables to a new blue palette.
-  * **Replace the logo:** In the `<header>`, change the text of the `<a>` tag with the class `logo` from "NETFLIX" to "SUPERFLIX".
-  * **Update all text references:** Change any text that says "Netflix" to "SuperFlix," including in headings, paragraphs, and the footer.
-  * **Change image URLs (optional but recommended):** Replace the existing Netflix images with ones more fitting for "SuperFlix."
-
-### Updated HTML and CSS
-
-Here is the full code with all the changes implemented.
-
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -66,10 +53,16 @@ Here is the full code with all the changes implemented.
         }
 
         .header .logo {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: var(--superflix-blue);
             text-decoration: none;
+        }
+        
+        @media (min-width: 768px) {
+            .header .logo {
+                font-size: 2rem;
+            }
         }
 
         .header-actions {
@@ -83,8 +76,8 @@ Here is the full code with all the changes implemented.
             border: 1px solid var(--text-white);
             border-radius: 4px;
             color: var(--text-white);
-            padding: 8px 12px;
-            font-size: 0.9rem;
+            padding: 6px 10px;
+            font-size: 0.8rem;
             cursor: pointer;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592c.859 0 1.319 1.013.753 1.658L8.753 11.14c-.198.22-.533.22-.731 0z'/%3E%3C/svg%3E");
@@ -101,13 +94,24 @@ Here is the full code with all the changes implemented.
             background-color: var(--superflix-blue);
             color: var(--text-white);
             border: none;
-            padding: 8px 20px;
+            padding: 6px 15px;
             border-radius: 4px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
             transition: background-color 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            .header .lang-selector {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            .header .sign-in-button {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
         }
 
         .header .sign-in-button:hover {
@@ -145,17 +149,21 @@ Here is the full code with all the changes implemented.
             position: relative;
             z-index: 1;
             max-width: 950px;
-            padding: 0 3%;
+            padding: 0 5%;
         }
 
         .hero-content h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 900;
             margin-bottom: 20px;
         }
-
+        
+        .hero-content h1, .hero-content p {
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+        
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-bottom: 20px;
         }
 
@@ -169,7 +177,7 @@ Here is the full code with all the changes implemented.
 
         .cta-form input {
             padding: 15px 15px;
-            width: 80%;
+            width: 90%;
             max-width: 450px;
             border: 1px solid var(--superflix-gray-light);
             background-color: rgba(0, 0, 0, 0.5);
@@ -191,8 +199,43 @@ Here is the full code with all the changes implemented.
             display: flex;
             align-items: center;
             gap: 10px;
+            width: 90%;
+            justify-content: center;
         }
+        
+        @media (min-width: 768px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
 
+            .hero-content p {
+                font-size: 1.5rem;
+            }
+
+            .cta-form {
+                flex-direction: row;
+                gap: 0;
+                justify-content: center;
+            }
+
+            .cta-form input {
+                flex-grow: 1;
+                width: auto;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .cta-form button {
+                padding: 15px 40px;
+                font-size: 1.5rem;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                min-width: 200px;
+                height: 58px;
+                width: auto;
+            }
+        }
+        
         .cta-form button:hover {
             background-color: #0056b3;
         }
@@ -207,6 +250,12 @@ Here is the full code with all the changes implemented.
         .advantages-section, .faq-section {
             padding: 70px 5%;
             text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            .advantages-section h2, .faq-section h2 {
+                font-size: 3rem;
+            }
         }
 
         .advantages-section h2, .faq-section h2 {
@@ -228,13 +277,13 @@ Here is the full code with all the changes implemented.
         }
 
         .advantage-text h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 900;
             margin-bottom: 15px;
         }
 
         .advantage-text p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .advantage-media {
@@ -266,16 +315,40 @@ Here is the full code with all the changes implemented.
             height: 100%;
             object-fit: cover;
         }
+        
+        @media (min-width: 768px) {
+            .advantage-item {
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
+                gap: 50px;
+            }
+
+            .advantage-item:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+
+            .advantage-text, .advantage-media {
+                flex: 1;
+            }
+            
+            .advantage-text h2 {
+                font-size: 2rem;
+            }
+            .advantage-text p {
+                font-size: 1.2rem;
+            }
+        }
 
         /* --- Trending Section (Carousel) --- */
         .trending-section {
-            padding: 70px 0;
+            padding: 50px 0;
             background-color: var(--superflix-black);
             position: relative;
         }
 
         .trending-section h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 900;
             margin-bottom: 20px;
             text-align: left;
@@ -306,12 +379,6 @@ Here is the full code with all the changes implemented.
             display: none;
         }
 
-        /* Carrossel: Setas invisíveis com ícones de SVG, aparecem no hover */
-        .carousel-container:hover .carousel-button {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        
         .carousel-button {
             position: absolute;
             top: 50%;
@@ -320,7 +387,7 @@ Here is the full code with all the changes implemented.
             background: rgba(0, 0, 0, 0.5);
             border: none;
             cursor: pointer;
-            width: 60px;
+            width: 40px;
             height: 100%;
             display: flex;
             align-items: center;
@@ -330,9 +397,14 @@ Here is the full code with all the changes implemented.
             transition: opacity 0.3s ease;
         }
 
+        .carousel-container:hover .carousel-button {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
         .carousel-button svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             fill: #fff;
         }
 
@@ -346,9 +418,9 @@ Here is the full code with all the changes implemented.
 
         .trending-item {
             position: relative;
-            min-width: 180px;
-            width: 180px;
-            height: 250px;
+            min-width: 140px;
+            width: 140px;
+            height: 200px;
             border-radius: 4px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             scroll-snap-align: start;
@@ -363,7 +435,6 @@ Here is the full code with all the changes implemented.
             background-position: center;
         }
         
-        /* Adicionando o efeito de escurecimento na imagem */
         .trending-item::after {
             content: '';
             position: absolute;
@@ -382,7 +453,6 @@ Here is the full code with all the changes implemented.
             z-index: 5;
         }
 
-        /* Nomes e Números */
         .trending-content {
             position: relative;
             z-index: 2;
@@ -393,7 +463,7 @@ Here is the full code with all the changes implemented.
         }
         
         .trending-title {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
             text-shadow: 1px 1px 2px var(--superflix-black);
             margin-bottom: 5px;
@@ -406,13 +476,44 @@ Here is the full code with all the changes implemented.
         }
 
         .trending-number {
-            font-size: 7rem;
+            font-size: 5rem;
             font-weight: 900;
             color: rgba(255, 255, 255, 0.1);
-            -webkit-text-stroke: 3px var(--superflix-gray-light);
+            -webkit-text-stroke: 2px var(--superflix-gray-light);
             text-shadow: none;
             line-height: 1;
             z-index: 2;
+        }
+        
+        @media (min-width: 768px) {
+            .trending-section h2 {
+                padding-left: 5%;
+                font-size: 2.2rem;
+            }
+
+            .carousel-container {
+                padding: 0 40px;
+            }
+
+            .trending-list {
+                gap: 20px;
+            }
+
+            .trending-item {
+                min-width: 200px;
+                width: 200px;
+                height: 280px;
+                padding: 15px;
+            }
+            
+            .trending-title {
+                font-size: 1.2rem;
+            }
+
+            .trending-number {
+                font-size: 9rem;
+                -webkit-text-stroke: 3px var(--superflix-gray-light);
+            }
         }
         
         .trending-item img {
@@ -435,8 +536,14 @@ Here is the full code with all the changes implemented.
         .faq-list details {
             background-color: var(--superflix-gray-dark);
             margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: background-color 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            .faq-list details {
+                font-size: 1.1rem;
+            }
         }
 
         .faq-list details:hover {
@@ -496,6 +603,16 @@ Here is the full code with all the changes implemented.
         .footer-links a {
             color: var(--superflix-gray-light);
             text-decoration: none;
+            font-size: 0.8rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-links {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .footer-links a {
+                font-size: 0.9rem;
+            }
         }
 
         .footer-links a:hover {
@@ -510,88 +627,6 @@ Here is the full code with all the changes implemented.
         .footer-disclaimer {
             margin-top: 30px;
             font-size: 0.8rem;
-        }
-
-        /* --- Responsividade (Mobile e Desktop) --- */
-        @media (min-width: 768px) {
-            .hero-content h1 {
-                font-size: 3.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1.5rem;
-            }
-
-            .cta-form {
-                flex-direction: row;
-                gap: 0;
-            }
-
-            .cta-form input {
-                flex-grow: 1;
-                max-width: 450px;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-
-            .cta-form button {
-                padding: 15px 40px;
-                font-size: 1.5rem;
-                border-top-left-radius: 0;
-                border-bottom-left-radius: 0;
-                min-width: 200px;
-                height: 58px;
-            }
-
-            .advantages-section h2, .faq-section h2 {
-                font-size: 3rem;
-            }
-
-            .advantage-item {
-                flex-direction: row;
-                text-align: left;
-                align-items: center;
-                gap: 50px;
-            }
-
-            .advantage-item:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-
-            .advantage-text, .advantage-media {
-                flex: 1;
-            }
-            
-            .trending-section h2 {
-                padding-left: 5%;
-            }
-
-            .carousel-container {
-                padding: 0 40px;
-            }
-
-            .trending-list {
-                gap: 20px;
-            }
-
-            .trending-item {
-                min-width: 200px;
-                width: 200px;
-                height: 280px;
-                padding: 15px;
-            }
-            
-            .trending-title {
-                font-size: 1.2rem;
-            }
-
-            .trending-number {
-                font-size: 9rem;
-            }
-
-            .footer-links {
-                grid-template-columns: repeat(4, 1fr);
-            }
         }
     </style>
 </head>
@@ -878,4 +913,3 @@ Here is the full code with all the changes implemented.
 
 </body>
 </html>
-```
